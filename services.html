@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOURVIA - Our Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #0d6f88;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+            font-family: 'Brush Script MT', cursive;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .nav-links a.active {
+            color: #3498db;
+            font-weight: 700;
+        }
+        
+        .page-header {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .service-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-image {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .service-content p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .service-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .service-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .call-to-action {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .call-to-action h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .call-to-action p {
+            font-size: 18px;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links li {
+                margin-left: 15px;
+            }
+            
+            .page-header {
+                padding: 40px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">TOURVIA</a>
+                <ul class="nav-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Discover the exceptional travel experiences we offer to make your journey unforgettable.</p>
+        </div>
+    </section>
+    
+    <section class="services-section">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="cb.jpg" alt="Mission Image" style="width: 100%; height: 100%; object-fit: cover;" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Customized chatbot</h3>
+                        <p>personalized chatbot with has the options that you look for when u are lazy to type it all and its timesaving too!</p>
+                        <a href="contact.html" class="service-button">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="gm.jpg" alt="Mission Image" style="width: 100%; height: 100%; object-fit: cover;" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Dineout recommendations</h3>
+                        <p>Suggesting you the nearby places to dineout. Directs you to a google map which shows exact information, the price, location and distance.</p>
+                        <a href="contact.html" class="service-button">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="stay.jpg" alt="Mission Image" style="width: 100%; height: 100%; object-fit: cover;" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Stay-in recommendations</h3> 
+                        <p>Suggesting you the nearby places to stay-in. Directs you to a google map which shows exact information, the price, location and distance.</p>
+                        <a href="contact.html" class="service-button">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="sho.jpg" alt="Mission Image" style="width: 100%; height: 100%; object-fit: cover;" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Shopping Malls</h3>
+                        <p>Nearby shopping malls, stalls, or discounted places to purchase your items!</p>
+                        <a href="contact.html" class="service-button">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="phar.jpg" alt="Mission Image" style="width: 100%; height: 100%; object-fit: cover;" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Pharmacy locations</h3>
+                        <p>Nearby Pharmacy places to purchase your requirements!</p>
+                        <a href="contact.html" class="service-button">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="cab.jpg" alt="Mission Image" style="width: 100%; height: 100%; object-fit: cover;" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Clubs and Bars</h3>
+                        <p>Get yourself relaxed by clubbing and treating yourself to some drinks</p>
+                        <a href="contact.html" class="service-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="call-to-action">
+        <div class="container">
+            <h2>Ready to Start Your Journey?</h2>
+            <p>Contact our team today to discuss your travel dreams and let us create an unforgettable experience for you.</p>
+            <a href="contact.html" class="service-button">Contact Us</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>Explore more!</p>
+        </div>
+    </footer>
+</body>
+</html>

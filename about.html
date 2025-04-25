@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TOURVIA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #0d6f88;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+            font-family: 'Brush Script MT', cursive;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .nav-links a.active {
+            color: #3498db;
+            font-weight: 700;
+        }
+        
+        .page-header {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            color: #121212;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-section {
+            padding: 40px 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 350px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #777;
+        }
+        
+        .about-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #151618;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #555;
+        }
+        
+        .team-section {
+            padding: 40px 0 60px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .team-section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .member-image {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+        }
+        
+        .member-info {
+            padding: 20px;
+        }
+        
+        .member-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .member-info p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+                height: 250px;
+            }
+            
+            .nav-links li {
+                margin-left: 15px;
+            }
+            
+            .page-header {
+                padding: 40px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">TOURVIA</a>
+                <ul class="nav-links">
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="page-header">
+        <div class="container">
+            <h1>About TOURVIA</h1>
+            <p>A place to gather more knowledge about your designated location </p>
+        </div>
+    </section>
+    
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>What is</h2>
+                    <p>Tourvia is a website which has a personalized chatbot to help u gather infomation about the old heritage places, travelling places, medical-herbal fields etc. </p>
+                    <p>Instead of asking much time from the users we provide them with options and if they choose an option they are directed with options of navigation, best recommendations and famous spots to visit and many more!</p>
+                </div>
+                <div class="about-image">
+                    <img src="min.png" alt="Mission Image" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
+                
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="cb.jpg" alt="Mission Image" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
+                <div class="about-text">
+                    <h2>About Chatbot</h2>
+                    <p>A chatbot is a program that can simulate conversation with users. It helps by quickly answering questions and guiding users through options. Using choice options (like buttons or menus) 
+                        makes it faster and easier for users to get the info they want—no need to type everything!</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <section class="team-section">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">[Team Member Photo]</div>
+                    <div class="member-info">
+                        <h3>Saakshi Pawar</h3>
+                        <p>1NH24IS414</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">[Team Member Photo]</div>
+                    <div class="member-info">
+                        <h3>Rupal Thanekar</h3>
+                        <p>1NH24IS413</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>Explore more!</p>
+        </div>
+    </footer>
+</body>
+</html>
