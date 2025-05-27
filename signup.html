@@ -90,7 +90,14 @@
       const confirmPassword = document.getElementById("confirm-password").value;
       const errorMessage = document.getElementById("error-message");
 
-      // Frontend validation
+      function showError(message) {
+        errorMessage.innerText = message;
+        errorMessage.style.display = "block";
+      }
+
+      errorMessage.style.display = "none";
+
+      // Validation
       if (!email.endsWith("@gmail.com")) {
         showError("Email must end with @gmail.com");
         return;
@@ -112,19 +119,16 @@
       // Send to backend
       try {
         const response = await fetch("/signup", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({ username, email, password })
-});
-
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, email, password })
+        });
 
         const result = await response.text();
 
         if (response.ok) {
           alert("Signup successful!");
-          window.location.href = "login.html";
+          window.location.href = "/login-page";
         } else {
           showError(result);
         }
@@ -132,12 +136,6 @@
         showError("Server error. Please try again later.");
       }
     });
-
-    function showError(message) {
-      const errorMessage = document.getElementById("error-message");
-      errorMessage.innerText = message;
-      errorMessage.style.display = "block";
-    }
   </script>
 </body>
 </html>
