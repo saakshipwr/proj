@@ -7,8 +7,9 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -16,57 +17,51 @@
     }
 
     .signup-container {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(8px);
-      width: 300px;
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
     }
 
     .signup-container h2 {
       text-align: center;
-      color: #fff;
-      margin-bottom: 20px;
+      color: #333;
+      margin-bottom: 30px;
     }
 
     .signup-container input {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.3);
-      color: black;
-    }
-
-    .signup-container input::placeholder {
-      color: white;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 16px;
     }
 
     .signup-container button {
       width: 100%;
       padding: 12px;
-      border: none;
-      background-color: #0d6f88;
+      background-color: #0f2027;
       color: white;
-      font-weight: bold;
-      border-radius: 6px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     .signup-container button:hover {
-      background-color: #09596b;
+      background-color: #203a43;
     }
 
     .error {
-      color: #ffdddd;
-      background: rgba(255, 0, 0, 0.2);
-      padding: 8px;
-      border-radius: 6px;
+      color: red;
+      margin-bottom: 15px;
       font-size: 14px;
-      margin-bottom: 10px;
-      text-align: center;
       display: none;
     }
   </style>
@@ -79,7 +74,7 @@
     <input type="email" id="email" placeholder="Email (@gmail.com)" required />
     <input type="password" id="password" placeholder="Password" required />
     <input type="password" id="confirm-password" placeholder="Re-enter Password" required />
-    <button id="signupBtn">Signup</button>
+    <button id="signupBtn" type="button">Signup</button>
   </div>
 
   <script>
@@ -97,7 +92,6 @@
 
       errorMessage.style.display = "none";
 
-      // Validation
       if (!email.endsWith("@gmail.com")) {
         showError("Email must end with @gmail.com");
         return;
@@ -116,7 +110,6 @@
         return;
       }
 
-      // Send to backend
       try {
         const response = await fetch("/signup", {
           method: "POST",

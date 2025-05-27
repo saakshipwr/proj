@@ -46,13 +46,16 @@ def signup():
     if not username or not email or not password:
         return "Missing fields", 400
 
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", (username, email, password))
-    conn.commit()
-    conn.close()
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", (username, email, password))
+        conn.commit()
+        conn.close()
+        return "Signup successful", 200
+    except sqlite3.IntegrityError:
+        return "Email already exists", 409
 
-    return "Signup successful", 200
 
 
 # --- LOGIN API ---
