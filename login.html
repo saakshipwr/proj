@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - TOURVIA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      width: 300px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.3);
+      color: black;
+    }
+
+    .login-container input::placeholder {
+      color: white;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #0d6f88;
+      color: black;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .login-container button:hover {
+      background-color: #09596b;
+    }
+
+    .signup-link {
+      text-align: center;
+      color: #fff;
+      margin-top: 15px;
+    }
+
+    .signup-link button {
+      margin-left: 10px;
+      padding: 6px 12px;
+      background-color: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .signup-link button:hover {
+      background-color: #fff;
+      color: #0d6f88;
+    }
+
+    .error {
+      color: #ffdddd;
+      background: rgba(255, 0, 0, 0.2);
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <div id="error-message" class="error"></div>
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="handleLogin()">Login</button>
+    <div class="signup-link">
+      Don't have an account?
+      <button onclick="window.location.href='signup.html'">Signup</button>
+    </div>
+  </div>
+
+  <script>
+    async function handleLogin() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const errorMessage = document.getElementById("error-message");
+
+      if (!email || !password) {
+        showError("Please enter both email and password.");
+        return;
+      }
+
+      try {
+        const response = await fetch("http://localhost:3000/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        const result = await response.text();
+
+        if (response.ok) {
+          alert("Login successful!");
+          window.location.href = "explore.html";
+        } else {
+          showError(result);
+        }
+      } catch (err) {
+        showError("Server error. Please try again later.");
+      }
+    }
+
+    function showError(message) {
+      const errorMessage = document.getElementById("error-message");
+      errorMessage.innerText = message;
+      errorMessage.style.display = "block";
+    }
+  </script>
+</body>
+</html>

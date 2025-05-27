@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signup - TOURVIA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .signup-container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      width: 300px;
+    }
+
+    .signup-container h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .signup-container input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.3);
+      color: black;
+    }
+
+    .signup-container input::placeholder {
+      color: white;
+    }
+
+    .signup-container button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #0d6f88;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .signup-container button:hover {
+      background-color: #09596b;
+    }
+
+    .error {
+      color: #ffdddd;
+      background: rgba(255, 0, 0, 0.2);
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Create Account</h2>
+    <div id="error-message" class="error"></div>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="email" id="email" placeholder="Email (@gmail.com)" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <input type="password" id="confirm-password" placeholder="Re-enter Password" required />
+    <button id="signupBtn">Signup</button>
+  </div>
+
+  <script>
+    document.getElementById("signupBtn").addEventListener("click", async () => {
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
+      const errorMessage = document.getElementById("error-message");
+
+      // Frontend validation
+      if (!email.endsWith("@gmail.com")) {
+        showError("Email must end with @gmail.com");
+        return;
+      }
+
+      const letters = password.replace(/[^a-zA-Z]/g, "").length;
+      const specialChars = password.replace(/[a-zA-Z0-9]/g, "").length;
+
+      if (letters < 5 || specialChars < 2) {
+        showError("Password must have at least 5 letters and 2 special characters");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showError("Passwords do not match");
+        return;
+      }
+
+      // Send to backend
+      try {
+        const response = await fetch("http://localhost:3000/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ username, email, password })
+        });
+
+        const result = await response.text();
+
+        if (response.ok) {
+          alert("Signup successful!");
+          window.location.href = "login.html";
+        } else {
+          showError(result);
+        }
+      } catch (err) {
+        showError("Server error. Please try again later.");
+      }
+    });
+
+    function showError(message) {
+      const errorMessage = document.getElementById("error-message");
+      errorMessage.innerText = message;
+      errorMessage.style.display = "block";
+    }
+  </script>
+</body>
+</html>

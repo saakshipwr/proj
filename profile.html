@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile - TOURVIA</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #0d6f88;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #2c3e50;
+      font-family: 'Brush Script MT', cursive;
+    }
+
+    .profile-container {
+      max-width: 600px;
+      background-color: #ffffff;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .profile-container h2 {
+      color: #0d6f88;
+      margin-bottom: 20px;
+    }
+
+    .profile-info {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .profile-info span {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    button {
+      background-color: #0d6f88;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #09596b;
+    }
+
+    footer {
+      margin-top: auto;
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">TOURVIA</div>
+    </nav>
+  </header>
+
+  <div class="profile-container">
+    <h2>Welcome to Your Profile</h2>
+    <p class="profile-info">Username: <span id="username">Loading...</span></p>
+    <p class="profile-info">Email: <span id="email">Loading...</span></p>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <footer>
+    <p>Explore more!</p>
+  </footer>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("username").innerText = user.username;
+      document.getElementById("email").innerText = user.email;
+    }
+
+    function logout() {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
