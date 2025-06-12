@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designation-Valley of Flowers National Park</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* keeps it behind everything */
+    opacity: 0.9; /* optional: make it a bit transparent if needed */
+}
+
+
+
+
+        header {
+            background-color: #0d6f88;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            font-size: 36px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+
+        header:hover {
+            background-color: #084f67;
+        }
+
+        .weather-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: nowrap;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .img-container {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .img-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .intro {
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .dropdown-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 300px;
+            width: 100%;
+            position: relative;
+        }
+
+        .dropdown {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+            outline: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown:hover {
+            background-color: #f1f1f1;
+            border-color: #0d6f88;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 28px;
+            }
+
+            .container {
+                margin: 20px;
+                gap: 30px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .dropdown {
+                width: 250px;
+            }
+
+            .img-container {
+                max-width: 500px;
+            }
+
+            .dropdown-container {
+                width: 100%;
+                max-width: 300px;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="bgg.jpg" alt="Background" class="bg-image">
+
+    <header>
+        Designation - Khangchendzonga Biosphere Reserve
+        <div class="weather-info" id="weather-info">
+            Loading weather...
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div class="img-container">
+                <img src="bio.webp" alt="Reserve" />
+            </div>
+            <div class="intro">
+                The Khangchendzonga Biosphere Reserve is a UNESCO World Heritage Site located in Sikkim, 
+                named after Mount Khangchendzonga, the third-highest mountain in the world.
+
+            </div>
+        </div>
+    
+        <div class="right-section">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d904702.4398803416!2d87.65820999540331!3d27.65566025742427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e65813ee7f2dbb%3A0x8325c1d198e4ecaa!2sKanchenjunga%20National%20Park!5e0!3m2!1sen!2sin!4v1749765104743!5m2!1sen!2sin"
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+    
+            <div class="dropdown-container">
+                <h2>What do you prefer to do?</h2>
+                <select class="dropdown" onchange="if(this.value) window.open(this.value, '_blank');">
+                    <option value="">Select an option...</option>
+                    <option value="https://www.google.com/maps/place/Kanchanjonga+Shopping+Complex/@27.3258585,88.6085155,17z/data=!3m1!4b1!4m6!3m5!1s0x39e6a52265d57a3b:0x57b4ed4f175260a8!8m2!3d27.3258585!4d88.6110904!16s%2Fg%2F11jvj0z93d?entry=ttu&g_ep=EgoyMDI1MDYwOS4xIKXMDSoASAFQAw%3D%3D">Nearby shopping</option>
+                    <option value="https://www.google.com/maps/place/Lingthem+Lyang+Homestay/@27.528169,88.4990107,17z/data=!4m9!3m8!1s0x39e6bf9268015f5b:0x6ea3479d4d091c7a!5m2!4m1!1i2!8m2!3d27.528169!4d88.5015856!16s%2Fg%2F11f4wv1rxd?entry=ttu&g_ep=EgoyMDI1MDYwOS4xIKXMDSoASAFQAw%3D%3D">Stay-in places nearby</option>
+                    <option value="https://www.google.com/maps/place/Luing+Garden/@27.3466314,88.5940222,17z/data=!3m1!4b1!4m6!3m5!1s0x39e6a50a903340c9:0xeb81f5de11f23723!8m2!3d27.3466314!4d88.5965971!16s%2Fg%2F11s4y5b2sr?entry=ttu&g_ep=EgoyMDI1MDYwOS4xIKXMDSoASAFQAw%3D%3D">Dine-in spots</option>
+                    <option value="https://www.google.com/maps/search/Khangchendzonga+Biosphere+Reserve+pharmacy+nearby/@27.3989472,88.1184914,10z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDYwOS4xIKXMDSoASAFQAw%3D%3D">Pharmacy centre</option>
+                  </select>
+                                   
+            </div>
+        </div>
+    </div>
+    
+
+    <footer>
+        <p>Explore Khangchendzonga Biosphere Reserve with us!</p>
+    </footer>
+
+    <script>
+        // Fetch current weather data for Hampi using OpenWeatherMap API
+        async function fetchWeather() {
+    const apiKey = '11592d4571896fe991ab363c6a13ae95'; // Your OpenWeatherMap API key
+    const lat = 30.6090;
+    const lon = 79.5790;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=30.6828&lon=79.5786&appid=YOUR_API_KEY&units=metric`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Network response was not ok");
+        const data = await response.json();
+
+        if (data.main) {
+            const weather = data.weather[0].description;
+            const temperature = data.main.temp;
+            const icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+
+            document.getElementById('weather-info').innerHTML = `
+                <img src="${icon}" alt="Weather Icon" style="width: 20px; margin-right: 10px;">
+                ${temperature}°C, ${weather}
+            `;
+        } else {
+            document.getElementById('weather-info').innerText = 'Weather info not available';
+        }
+    } catch (error) {
+        console.error('Fetch error:', error);
+        document.getElementById('weather-info').innerText = 'Failed to load weather';
+    }
+}
+
+
+        // Call the function to fetch weather when the page loads
+        fetchWeather();
+    </script>
+
+</body>
+</html>
